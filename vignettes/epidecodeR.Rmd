@@ -34,7 +34,7 @@ Here we present epidecodeR, an R package capable of integrating chemical modific
 
 3. Calculate theoretical and empirical cumulative probabilities (quantiles) of log2FC per group
 
-4. Perform ANOVA one-way test of significance in difference of mean between groups 
+4. Perform Kruskal Wallis test of significance in difference of mean between groups 
 
 5. Plot CDF plots and boxplot with significance testing results
 
@@ -51,7 +51,7 @@ knitr::include_graphics("steps.png")
 ```{r, eval=FALSE}
 if(!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install("epidecodeR")
+    BiocManager::install("epidecodeR")
 ```
 ```{r setup}
 library(epidecodeR)
@@ -134,7 +134,7 @@ ints | vector - A vector of intervals defining limits of the degree of group for
 
 ### Output
 
-epidecodeR function returns an epidecodeR object of S4 class, which contains theoretical and empirical cumulative probabilities of the quantiles as well as group information and set of genes belonging to each group. The object also contains result of one-way ANOVA significance test of difference in means of log2FC between groups following Tukey's test between every set of two groups. 
+epidecodeR function returns an epidecodeR object of S4 class, which contains theoretical and empirical cumulative probabilities of the quantiles as well as group information and set of genes belonging to each group. The object also contains result of Kruskal Wallis significance test of difference in means of log2FC between groups following Dunns's test of multiple comparisons between every set of two groups. 
 
 Theoretical cumulative probabilities
 
